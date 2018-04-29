@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{98a9a752-2418-48cd-921b-2196e0616540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\glad">
+      <UniqueIdentifier>{35002f24-0fc9-4df8-b61c-f6eb4f04e2ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\stb">
+      <UniqueIdentifier>{6f56ea00-6d3a-4782-b678-d6448087231e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\glm">
+      <UniqueIdentifier>{a35eef33-f2a9-44fe-b7c3-c8e93baba2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{cc9de10d-4aab-437b-b476-f660652bc74c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\shaders">
+      <UniqueIdentifier>{c3013813-f0b4-4ffc-87a9-94005cc774c2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glad\glad.c">
+      <Filter>src\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\glad\glad.h">
+      <Filter>src\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glad\khrplatform.h">
+      <Filter>src\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stb\stb_image.h">
+      <Filter>src\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\common.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\exponential.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\ext.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\fwd.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\geometric.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\glm.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\integer.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat2x2.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat2x3.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat2x4.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat3x2.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat3x3.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat3x4.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat4x2.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat4x3.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\mat4x4.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\matrix.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\packing.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\trigonometric.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\vec2.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\vec3.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\vec4.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm\vector_relational.hpp">
+      <Filter>src\glm</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\basique2D.frag">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\basique2D.vert">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\couleur2D.frag">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\couleur2D.vert">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\couleur3D.frag">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\couleur3D.vert">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\texture.frag">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\texture.vert">
+      <Filter>res\shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

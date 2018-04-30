@@ -153,7 +153,7 @@ bool Shader::charger()
 }
 
 
-bool Shader::compilerShader(GLuint &shader, GLenum type, std::string const &fichierSource)
+bool Shader::compilerShader(GLuint &shader, GLenum type, std::string const &fichierSource) const
 {
     // Création du shader
 

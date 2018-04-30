@@ -17,6 +17,7 @@ Scene::Scene(std::string titleWindow, int widthWindow, int heightWindow) :
 	initSDL2();
 	initWindow();
 	initGL();
+	info();
 }
 
 Scene::~Scene()
@@ -58,8 +59,6 @@ void Scene::initWindow()
 		exit(-4);
 	}
 
-	
-
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GL_VERSION_MAJOR);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GL_VERSION_MINOR);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
@@ -67,7 +66,6 @@ void Scene::initWindow()
 	SDL_GL_SetSwapInterval(1); //vsync
 
 	// Création du contexte OpenGL
-
 	m_glcontext = SDL_GL_CreateContext(m_window);
 
 	if (!m_glcontext)
@@ -81,17 +79,34 @@ void Scene::initWindow()
 
 void Scene::initGL()
 {
-	if (!gladLoadGLLoader(SDL_GL_GetProcAddress)) {
+	if (!gladLoadGLLoader(SDL_GL_GetProcAddress)) 
+	{
 		std::cout << "Error loading Glad !" << std::endl;
 		exit(-1);
 	}
 
+	
+}
+
+bool Scene::eventReturn()
+{
+	while (SDL_PollEvent(&m_event))
+	{
+		if (m_event.window.event == SDL_WINDOWEVENT_CLOSE)
+			return false;
+	}
+
+	return true;
+}
+
+void Scene::info() const
+{
 	// SDL
 	std::cout << "Execution Path:  " << m_basepath << std::endl;
 	std::cout << "Data Path:       " << m_datapath << std::endl << std::endl;
 
-	SDL_version linked; SDL_GetVersion(&linked);
 	std::cout << "SDL Compiled:    " << SDL_MAJOR_VERSION << "." << SDL_MINOR_VERSION << "." << SDL_PATCHLEVEL << std::endl;
+	SDL_version linked; SDL_GetVersion(&linked);
 	std::cout << "SDL Linked:      " << static_cast<int>(linked.major) << "." << static_cast<int>(linked.minor) << "." << static_cast<int>(linked.patch) << std::endl;
 
 	std::cout << "Platform:        " << SDL_GetPlatform() << std::endl;
@@ -104,17 +119,6 @@ void Scene::initGL()
 	std::cout << "Screen:          " << SDL_GetNumVideoDisplays() << std::endl;
 
 	std::cout << std::endl;
-}
-
-bool Scene::eventReturn()
-{
-	while (SDL_PollEvent(&m_event))
-	{
-		if (m_event.window.event == SDL_WINDOWEVENT_CLOSE)
-			return false;
-	}
-
-	return true;
 }
 
 void Scene::mainLoop()
@@ -132,11 +136,11 @@ void Scene::mainLoop()
 	float color[] =
 	{ 
 		1.0, 0.0, 0.0,		// Vertex 1
-		0.0, 1.0, 0.0 ,		// Vertex 2
+		0.0, 1.0, 1.0 ,		// Vertex 2
 		0.0, 0.0, 1.0,		// Vertex 3
 
 		1.0, 0.0, 0.0,		// Vertex 4 (Copie du 1)
-		1.0, 1.0, 1.0,		// Vertex 5
+		1.0, 1.0, 0.0,		// Vertex 5
 		0.0, 0.0, 1.0		// Vertex 6
 	};
 

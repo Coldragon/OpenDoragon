@@ -25,6 +25,7 @@ private:
 	void initSDL2();
 	void initWindow();
 	void initGL();
+	void info() const;
 	bool eventReturn();
 	
 	std::string m_titleWindow = nullptr;

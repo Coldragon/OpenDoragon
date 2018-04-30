@@ -22,7 +22,7 @@ class Shader
     Shader& operator=(Shader const &shaderACopier);
 
     bool charger();
-    bool compilerShader(GLuint &shader, GLenum type, std::string const &fichierSource);
+    bool compilerShader(GLuint &shader, GLenum type, std::string const &fichierSource) const;
     GLuint getProgramID() const;
 
 

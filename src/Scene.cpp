@@ -1,12 +1,13 @@
 ﻿#include "glad/glad.h"
 #include "Scene.h"
+#include <utility>
 #include "Shader.h"
 
-#define GL_VERSION_MAJOR 3
-#define GL_VERSION_MINOR 1
+#define GL_VERSION_MAJOR 4
+#define GL_VERSION_MINOR 6
 
-Scene::Scene(std::string titleWindow, int widthWindow, int heightWindow) :
-	m_titleWindow(titleWindow),
+Scene::Scene(std::string titleWindow, const int widthWindow, const int heightWindow) :
+	m_titleWindow(std::move(titleWindow)),
 	m_widthWindow(widthWindow),
 	m_heightWindow(heightWindow)
 {
@@ -36,7 +37,6 @@ void Scene::initSDL2()
 		exit(-3);
 	}
 	
-
 	if (SDL_VideoInit(nullptr) < 0)
 	{
 		std::cout << "Error Init Video SDL2 : " << SDL_GetError() << std::endl;
@@ -59,6 +59,8 @@ void Scene::initWindow()
 		exit(-4);
 	}
 
+	SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GL_VERSION_MAJOR);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GL_VERSION_MINOR);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
@@ -115,9 +117,21 @@ void Scene::info() const
 	// GL
 	std::cout << "GPU:             " << glGetString(GL_RENDERER) << std::endl;
 	std::cout << "OpenGL Version:  " << glGetString(GL_VERSION) << std::endl;
+	
+	int mode = 0; const char * profile;
+	SDL_GL_GetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, &mode);
+	if (mode == SDL_GL_CONTEXT_PROFILE_CORE)
+		profile = "Core";
+	else if (mode == SDL_GL_CONTEXT_PROFILE_COMPATIBILITY)
+		profile = "Compatibility";
+	else if (mode == SDL_GL_CONTEXT_PROFILE_ES)
+		profile = "ES";
+	else
+		profile = "Unknow";
+
+	std::cout << "OpenGL Profile:  " << profile << std::endl;
 	std::cout << "GLSL Version:    " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 	std::cout << "Screen:          " << SDL_GetNumVideoDisplays() << std::endl;
-
 	std::cout << std::endl;
 }
 
